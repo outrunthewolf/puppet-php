@@ -149,13 +149,13 @@ define php::version(
     }
 
     # Fix permissions for php versions installed prior to 0.3.5 of this module
-    file { $dest:
-      ensure  => directory,
-      owner   => $::boxen_user,
-      group   => 'staff',
-      recurse => true,
-      require => Php_version[$patch_version],
-    }
+    #file { $dest:
+    #  ensure  => directory,
+    #  owner   => $::boxen_user,
+    #  group   => 'staff',
+    #  recurse => true,
+    #  require => Php_version[$patch_version],
+    #}
 
     # Rehash phpenv shims when a new version is installed
     exec { "phpenv-rehash-post-install-${patch_version}":
